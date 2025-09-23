@@ -1,0 +1,15 @@
+{
+  "name": "net.kaikoga.arv",
+  "displayName": "Avatar Ranker Vista",
+  "version": "0.1.0",
+  "unity": "2019.3",
+  "description": "Show Performance Ranks and Not Performance Ranks",
+  "vrchatVersion": "2022.1.1",
+  "author": {
+    "name": "kaikoga",
+    "email": "info@mail.kaikoga.net",
+    "url": "https://github.com/kaikoga/AvatarRankerVista-Unity"
+  },
+  "vpmDependencies": {
+  }
+}

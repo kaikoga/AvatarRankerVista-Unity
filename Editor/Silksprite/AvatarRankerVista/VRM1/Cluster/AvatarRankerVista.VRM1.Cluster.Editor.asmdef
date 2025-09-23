@@ -1,0 +1,27 @@
+{
+    "name": "AvatarRankerVista.VRM1.Cluster.Editor",
+    "rootNamespace": "Silksprite.AvatarRankerVista.VRM1.Cluster",
+    "references": [
+        "VRM10",
+        "AvatarRankerVista.API.Editor",
+        "AvatarRankerVista.Generic.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+    ],
+    "autoReferenced": false,
+  "defineConstraints": ["ARV_VRM1"],
+  "versionDefines": [
+    {
+      "name": "com.vrmc.vrm",
+      "expression": "",
+      "define": "ARV_VRM1"
+    }
+  ],
+    "noEngineReferences": false
+}

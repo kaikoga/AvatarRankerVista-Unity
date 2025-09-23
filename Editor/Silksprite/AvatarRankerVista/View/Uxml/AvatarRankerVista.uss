@@ -1,0 +1,103 @@
+AvatarRankerVistaWindowView {
+    flex-grow: 1;
+}
+
+Toggle.toggle-only {
+    width: 16px;
+}
+
+Toolbar {
+    border-top-width: 1px;
+    border-bottom-width: 0px;
+}
+
+#full-pane {
+    flex-grow: 1;
+}
+
+#left-pane {
+    width: 200px;
+}
+
+#right-pane {
+    flex-grow: 1;
+}
+
+#left-upper-pane {
+    height: 150px;
+}
+
+#left-lower-pane {
+    flex-grow: 1;
+}
+
+#avatarNameText {
+    -unity-font-style: bold;
+}
+
+.header {
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+.box {
+    padding: 2px;
+    border-width: 1px;
+    border-color: #666666;
+    margin: 2px;
+    width: auto;
+}
+
+.row {
+    flex-direction: row;
+    flex-shrink: 0;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.prop-label {
+    width: 200px;
+}
+
+.prop-val {
+    width: 150px;
+}
+
+.prop-level {
+    width: 80px;
+    border-left-width: 6px;
+}
+
+.prop-level.excellent {
+    border-left-color: lightgreen;
+}
+
+.prop-level.good {
+    border-left-color: green;
+}
+
+.prop-level.medium {
+    border-left-color: goldenrod;
+}
+
+.prop-level.poor {
+    border-left-color: orangered;
+}
+
+.prop-level.veryPoor {
+    border-left-color: darkred;
+}
+
+.prop-level.original {
+    border-left-color: cyan;
+}
+
+.prop-level.compressed {
+    border-left-color: darkblue;
+}
+
+.prop-level.unlimited {
+    border-left-color: mediumvioletred;
+}

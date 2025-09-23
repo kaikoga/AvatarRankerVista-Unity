@@ -1,0 +1,16 @@
+{
+    "name": "AvatarRankerVista.API.Editor",
+    "rootNamespace": "Silksprite.AvatarRankerVista.API",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

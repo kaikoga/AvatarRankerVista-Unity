@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xmlns:arv="Silksprite.AvatarRankerVista.View.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd"
+>
+    <engine:TwoPaneSplitView class="full-pane" fixed-pane-initial-dimension="200">
+        <engine:VisualElement name="left-pane">
+            <engine:TwoPaneSplitView class="full-pane" orientation="Vertical" fixed-pane-initial-dimension="150">
+                <engine:VisualElement name="left-upper-pane">
+                    <arv:RegulationListView label="Regulation" name="regulationList" class="flex-grow" />
+                    <editor:Toolbar style="flex-shrink: 0;">
+                        <engine:Toggle name="showFullReport" label="Show Full Report" />
+                    </editor:Toolbar>
+                </engine:VisualElement>
+                <engine:VisualElement name="left-lower-pane">
+                    <engine:ListView name="avatarNameList" class="flex-grow" selection-type="Multiple" />
+                    <editor:Toolbar style="flex-shrink: 0;">
+                        <editor:ToolbarButton name="clearReports" text="Clear" />
+                    </editor:Toolbar>
+                </engine:VisualElement>
+            </engine:TwoPaneSplitView>
+        </engine:VisualElement>
+        <engine:VisualElement name="right-pane">
+            <arv:GameObjectPopupField label="NDMF Select Scene Avatars" name="sceneAvatarsPopup" />
+            <editor:ObjectField type="UnityEngine.GameObject, UnityEngine.CoreModule" label="Avatar Root Object" name="avatarRootObjectField" />
+            <engine:ScrollView>
+                <arv:SerializedAvatarReportListView name="avatarReportListView" />
+            </engine:ScrollView>
+        </engine:VisualElement>
+    </engine:TwoPaneSplitView>
+</engine:UXML>
