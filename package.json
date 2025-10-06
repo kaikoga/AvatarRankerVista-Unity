@@ -1,7 +1,8 @@
 {
   "name": "net.kaikoga.arv",
+  "url": "https://vpm.kaikoga.net/net.kaikoga.arv/net.kaikoga.arv-1.0.0.zip",
   "displayName": "Avatar Ranker Vista",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "unity": "2019.3",
   "description": "Show Performance Ranks and Not Performance Ranks",
   "vrchatVersion": "2022.1.1",
