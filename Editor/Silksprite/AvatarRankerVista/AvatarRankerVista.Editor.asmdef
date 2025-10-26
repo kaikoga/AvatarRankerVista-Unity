@@ -14,7 +14,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": false,
-    "defineConstraints": ["ARV_NDMF"],
+    "defineConstraints": [],
     "versionDefines": [
         {
             "name": "nadena.dev.ndmf",

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using nadena.dev.ndmf.runtime;
 using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.Core.Utils;
@@ -9,6 +8,10 @@ using Silksprite.AvatarRankerVista.Window;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+
+#if ARV_NDMF
+using nadena.dev.ndmf.runtime;
+#endif
 
 namespace Silksprite.AvatarRankerVista.View.Window
 {
