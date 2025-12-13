@@ -2,7 +2,8 @@
   "name": "AvatarRankerVista.View.Editor",
   "rootNamespace": "Silksprite.AvatarRankerVista.View",
   "references": [
-    "AvatarRankerVista.Editor"
+    "AvatarRankerVista.Editor",
+    "Ablet"
   ],
   "includePlatforms": [
     "Editor"
