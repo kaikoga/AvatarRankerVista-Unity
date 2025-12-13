@@ -8,21 +8,19 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
     public class AvatarRankerSettingsRepository : ScriptableSingleton<AvatarRankerSettingsRepository>
     {
         const string MeasureOnBuildPrefsKey = "net.kaikoga.arv.Settings.MeasureOnBuild"; 
+        const string ShowFullReportKey = "net.kaikoga.arv.Settings.ShowFullReport"; 
  
         [SerializeField]
         public List<string> excludedRegulationIds = new List<string>();
-
-        [SerializeField]
-        bool showFullReport;
 
         public event Action Changed;
 
         public bool ShowFullReport
         {
-            get => showFullReport;
+            get => EditorPrefs.GetBool(ShowFullReportKey, true);
             set
             {
-                showFullReport = value;
+                EditorPrefs.SetBool(ShowFullReportKey, value);
                 Changed?.Invoke();
             }
         }
