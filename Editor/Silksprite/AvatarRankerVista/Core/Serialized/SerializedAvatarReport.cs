@@ -1,6 +1,5 @@
 using System;
 using Ablet.API;
-using Unity.Burst;
 
 namespace Silksprite.AvatarRankerVista.Core.Serialized
 {
@@ -33,7 +32,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
         public string Name => System.IO.Path.GetFileName(path);
 
         public string FullName => $"{sceneName}:{Name}";
-        public string DisplayName => SerializedAvatarReportRepository.instance.IsMultiScene ? FullName : Name;
+        public string DisplayName => FullName;
 
         public override string ToString() => DisplayName;
 

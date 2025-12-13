@@ -30,16 +30,7 @@ namespace Silksprite.AvatarRankerVista.Core.Utils
                     };
                     return report.Export(origin);
                 }).ToArray();
-#if ARV_ABLET
-            ExportToAblet(avatarReports);
-#else
-            SerializedAvatarReportRepository.instance.AddRange(avatarReports);
-#endif
-        }
 
-#if ARV_ABLET
-        static void ExportToAblet(IEnumerable<SerializedAvatarReport> avatarReports)
-        {
             foreach (var avatarReport in avatarReports)
             {
                 BuildReportRepository.Instance.Add(new SerializedBuildReport(
@@ -52,6 +43,5 @@ namespace Silksprite.AvatarRankerVista.Core.Utils
                 ));
             }
         }
-#endif
     }
 }
