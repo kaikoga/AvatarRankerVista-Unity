@@ -1,6 +1,5 @@
 using System.Linq;
 using Silksprite.AvatarRankerVista.Core.Serialized;
-using Silksprite.AvatarRankerVista.Window;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -25,7 +24,7 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
 
         public void Draw(SerializedAvatarReport avatarReport)
         {
-            _avatarNameText.text = avatarReport.avatarName.FullName;
+            _avatarNameText.text = avatarReport.avatarReference.FullName;
             _avatarStatusText.text = $"{avatarReport.regulation.displayName} ({avatarReport.origin.ToString()}): {avatarReport.overallLevel.displayName}";
             _resultContainer.Clear();
 

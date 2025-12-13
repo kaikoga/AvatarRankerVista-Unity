@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+#if !UNITY_2022_OR_NEWER
+using UnityEditor.UIElements;
+#endif
+
 namespace Silksprite.AvatarRankerVista.View.UIElements
 {
     sealed class GameObjectPopupField : PopupField<GameObject>

@@ -4,7 +4,6 @@ using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.Core.Utils;
 using Silksprite.AvatarRankerVista.View.UIElements;
-using Silksprite.AvatarRankerVista.Window;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,7 +16,7 @@ namespace Silksprite.AvatarRankerVista.View.Window
 {
     class AvatarRankerVistaWindow : EditorWindow
     {
-        SerializedAvatarName[] _currentAvatarNames = {};
+        SerializedAvatarReference[] _currentAvatarNames = {};
         readonly SerializedAvatarReportList _serializedAvatarReportList = new SerializedAvatarReportList();
 
         AvatarRankerVistaWindowView _view;
@@ -34,7 +33,7 @@ namespace Silksprite.AvatarRankerVista.View.Window
             rootVisualElement.Add(_view);
             _view.AvatarRootObjectField.RegisterValueChangedCallback(evt => ManualReport(evt.newValue as GameObject));
             _view.ShowFullReport.RegisterValueChangedCallback(evt => OnShowFullReportChanged(evt.newValue));
-            _view.AvatarNameList.selectionChanged += selectedItems  => OnAvatarNameSelected(selectedItems.OfType<SerializedAvatarName>().ToArray());
+            _view.AvatarNameList.selectionChanged += selectedItems  => OnAvatarNameSelected(selectedItems.OfType<SerializedAvatarReference>().ToArray());
             _view.ClearReportsButton.clicked += OnClearReportsClicked;
             _view.SceneAvatarsPopup.RegisterValueChangedCallback(evt => OnSceneAvatarSelected(evt.newValue));
             _view.RegulationList.Draw(RegulationRepository.Instance.AllRegulations().ToList());
@@ -66,7 +65,7 @@ namespace Silksprite.AvatarRankerVista.View.Window
             AvatarRankerSettingsRepository.instance.ShowFullReport = newValue;
         }
 
-        void OnAvatarNameSelected(SerializedAvatarName[] selectedAvatarNames)
+        void OnAvatarNameSelected(SerializedAvatarReference[] selectedAvatarNames)
         {
             if (selectedAvatarNames.Length == 0)
             {
@@ -96,16 +95,16 @@ namespace Silksprite.AvatarRankerVista.View.Window
             if (avatarRootObject)
             {
                 AvatarReportService.MeasureAll(avatarRootObject, false);
-                _currentAvatarNames = new []{ new SerializedAvatarName
+                _currentAvatarNames = new []{ new SerializedAvatarReference
                     {
                         sceneName = avatarRootObject.scene.name,
-                        name = avatarRootObject.name
+                        path = avatarRootObject.name
                     }
                 };
             }
             else
             {
-                _currentAvatarNames = Array.Empty<SerializedAvatarName>();
+                _currentAvatarNames = Array.Empty<SerializedAvatarReference>();
             }
             Refresh();
         }

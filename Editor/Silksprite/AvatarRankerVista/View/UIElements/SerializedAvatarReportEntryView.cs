@@ -1,4 +1,4 @@
-using Silksprite.AvatarRankerVista.Window;
+using Silksprite.AvatarRankerVista.Core.Serialized;
 using UnityEditor;
 using UnityEngine.UIElements;
 

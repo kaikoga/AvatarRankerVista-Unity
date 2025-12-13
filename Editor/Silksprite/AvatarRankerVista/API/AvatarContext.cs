@@ -11,18 +11,18 @@ namespace Silksprite.AvatarRankerVista.API
         public readonly GameObject AvatarRootObject;
         readonly Dictionary<Type, object> _cache = new Dictionary<Type, object>();
 
-        public readonly string AvatarName;
+        public readonly string AvatarPath;
         public readonly string AvatarSceneName;
 
         public AvatarContext(GameObject avatarRootObject)
         {
             AvatarRootObject = avatarRootObject;
-            var avatarName = AvatarRootObject.name;
-            if (avatarName.EndsWith("(Clone)"))
+            var avatarPath = AvatarRootObject.name;
+            if (avatarPath.EndsWith("(Clone)"))
             {
-                avatarName = avatarName.Substring(0, avatarName.Length - "(Clone)".Length);
+                avatarPath = avatarPath.Substring(0, avatarPath.Length - "(Clone)".Length);
             }
-            AvatarName = avatarName;
+            AvatarPath = avatarPath;
             AvatarSceneName = avatarRootObject.scene.name;
         }
 

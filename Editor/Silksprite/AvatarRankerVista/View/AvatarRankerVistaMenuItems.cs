@@ -31,6 +31,17 @@ namespace Silksprite.AvatarRankerVista.View
             AvatarRankerSettingsRepository.instance.MeasureOnBuild = !AvatarRankerSettingsRepository.instance.MeasureOnBuild;
         }
         
+        [MenuItem("Tools/Avatar Tinker Vista/Show Report on Build", true, 100002)]
+        static bool ValidateShowReportOnBuild()
+        {
+#if ARV_ABLET
+            AvatarRankerSettingsRepository.instance.ShowReportOnBuild = false;
+            return false;
+#else
+            return true;
+ #endif
+        }
+        
         [MenuItem("Tools/Avatar Tinker Vista/Show Report on Build", false, 100002)]
         static void ShowReportOnBuild()
         {

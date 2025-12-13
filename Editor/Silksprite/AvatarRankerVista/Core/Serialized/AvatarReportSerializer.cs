@@ -1,6 +1,5 @@
 using System.Linq;
 using Silksprite.AvatarRankerVista.API;
-using Silksprite.AvatarRankerVista.Window;
 
 namespace Silksprite.AvatarRankerVista.Core.Serialized
 {
@@ -10,10 +9,10 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
         {
             return new SerializedAvatarReport
             {
-                avatarName = new SerializedAvatarName
+                avatarReference = new SerializedAvatarReference
                 {
                     sceneName = avatarReport.AvatarSceneName,
-                    name = avatarReport.AvatarName,
+                    path = avatarReport.AvatarPath,
                 },
                 origin = origin,
                 regulation = avatarReport.Regulation.Export(),

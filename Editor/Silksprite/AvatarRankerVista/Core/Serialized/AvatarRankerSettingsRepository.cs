@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Silksprite.AvatarRankerVista.Window;
 using UnityEditor;
 using UnityEngine;
 

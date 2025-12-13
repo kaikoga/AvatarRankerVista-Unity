@@ -1,0 +1,30 @@
+{
+  "name": "AvatarRankerVista.View.Editor",
+  "rootNamespace": "Silksprite.AvatarRankerVista.View",
+  "references": [
+    "nadena.dev.ndmf.runtime",
+    "AvatarRankerVista.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "nadena.dev.ndmf",
+      "expression": "(1.8.0-a,2.0-a)",
+      "define": "ARV_NDMF"
+    },
+    {
+      "name": "net.kaikoga.ablet",
+      "expression": "[0.1.0,999.0.0)",
+      "define": "ARV_ABLET"
+    }
+  ],
+  "noEngineReferences": false
+}

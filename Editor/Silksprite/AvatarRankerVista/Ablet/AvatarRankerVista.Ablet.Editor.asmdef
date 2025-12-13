@@ -1,0 +1,31 @@
+{
+  "name": "AvatarRankerVista.Ablet.Editor",
+  "rootNamespace": "Silksprite.AvatarRankerVista.Ablet",
+  "references": [
+    "AvatarRankerVista.Editor",
+    "Ablet.API",
+    "Ablet",
+    "Ablet.Builtin",
+    "Ablet.EditorAPI.Editor",
+    "AvatarRankerVista.View.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "ARV_ABLET"
+  ],
+  "versionDefines": [
+    {
+      "name": "net.kaikoga.ablet",
+      "expression": "[0.1.0,999.0.0)",
+      "define": "ARV_ABLET"
+    }
+  ],
+  "noEngineReferences": false
+}

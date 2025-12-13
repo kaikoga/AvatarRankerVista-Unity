@@ -35,6 +35,10 @@ Toolbar {
     -unity-font-style: bold;
 }
 
+AbletConsoleWindowView #avatarNameText {
+    display: none;
+}
+
 .header {
     margin-left: 16px;
     margin-top: 4px;

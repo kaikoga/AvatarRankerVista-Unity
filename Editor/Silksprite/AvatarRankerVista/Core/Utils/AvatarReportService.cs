@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
+using Ablet.Models.Serialized;
+using Ablet.Repositories;
 using Silksprite.AvatarRankerVista.API;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using UnityEngine;
@@ -26,8 +29,29 @@ namespace Silksprite.AvatarRankerVista.Core.Utils
                         (true, true) => AvatarReportOrigin.ActualBuild
                     };
                     return report.Export(origin);
-                });
+                }).ToArray();
+#if ARV_ABLET
+            ExportToAblet(avatarReports);
+#else
             SerializedAvatarReportRepository.instance.AddRange(avatarReports);
+#endif
         }
+
+#if ARV_ABLET
+        static void ExportToAblet(IEnumerable<SerializedAvatarReport> avatarReports)
+        {
+            foreach (var avatarReport in avatarReports)
+            {
+                BuildReportRepository.Instance.Add(new SerializedBuildReport(
+                    new SerializedEntrypointReference(
+                        avatarReport.avatarReference.sceneName,
+                        avatarReport.avatarReference.path
+                    ),
+                    "net.kaikoga.arv",
+                    avatarReport
+                ));
+            }
+        }
+#endif
     }
 }

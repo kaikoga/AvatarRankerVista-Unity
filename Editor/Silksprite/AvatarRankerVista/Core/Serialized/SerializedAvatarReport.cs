@@ -1,7 +1,6 @@
 using System;
-using Silksprite.AvatarRankerVista.Core;
-using Silksprite.AvatarRankerVista.Core.Serialized;
-using Silksprite.AvatarRankerVista.Window;
+using Ablet.API;
+using Unity.Burst;
 
 namespace Silksprite.AvatarRankerVista.Core.Serialized
 {
@@ -10,52 +9,55 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
     {
         public SerializedAvatarReport[] avatarReports = { };
     }
-}
-namespace Silksprite.AvatarRankerVista.Window
-{
 
     [Serializable]
-    public class SerializedAvatarReport
+    public class SerializedAvatarReport : IAbletSerializedBuildReportPayload.WithDiscriminator, IAbletSerializedBuildReportPayload.WithPriority
     {
-        public SerializedAvatarName avatarName;
+        public SerializedAvatarReference avatarReference;
         public AvatarReportOrigin origin;
         public SerializedRegulationRef regulation;
         public SerializedRegulationLevelRef overallLevel;
         public SerializedAvatarReportEntry[] result;
+
+        string IAbletSerializedBuildReportPayload.WithDiscriminator.Discriminator => regulation.id;
+        int IAbletSerializedBuildReportPayload.WithPriority.Priority => (int)origin;
     }
 
+#pragma warning disable CS0660
     [Serializable]
-    public struct SerializedAvatarName : IEquatable<SerializedAvatarName>
+    public struct SerializedAvatarReference : IEquatable<SerializedAvatarReference>
     {
         public string sceneName;
-        public string name;
+        public string path;
 
-        public string FullName => $"{sceneName}:{name}";
-        public string DisplayName => SerializedAvatarReportRepository.instance.IsMultiScene ? FullName : name;
+        public string Name => System.IO.Path.GetFileName(path);
+
+        public string FullName => $"{sceneName}:{Name}";
+        public string DisplayName => SerializedAvatarReportRepository.instance.IsMultiScene ? FullName : Name;
 
         public override string ToString() => DisplayName;
 
-        public bool Equals(SerializedAvatarName other)
+        public bool Equals(SerializedAvatarReference other)
         {
-            return sceneName == other.sceneName && name == other.name;
+            return sceneName == other.sceneName && path == other.path;
         }
-        public override bool Equals(object obj)
-        {
-            return obj is SerializedAvatarName other && Equals(other);
-        }
+
         public override int GetHashCode()
         {
-            return HashCode.Combine(sceneName, name);
+            return HashCode.Combine(sceneName, path);
         }
-        public static bool operator ==(SerializedAvatarName left, SerializedAvatarName right)
+
+        public static bool operator ==(SerializedAvatarReference left, SerializedAvatarReference right)
         {
             return left.Equals(right);
         }
-        public static bool operator !=(SerializedAvatarName left, SerializedAvatarName right)
+
+        public static bool operator !=(SerializedAvatarReference left, SerializedAvatarReference right)
         {
             return !left.Equals(right);
         }
     }
+#pragma warning restore CS0660
 
     [Serializable]
     public struct SerializedRegulationRef
@@ -70,7 +72,6 @@ namespace Silksprite.AvatarRankerVista.Window
         public string id;
         public string displayName;
     }
-
 
     [Serializable]
     public struct SerializedCriterionRef

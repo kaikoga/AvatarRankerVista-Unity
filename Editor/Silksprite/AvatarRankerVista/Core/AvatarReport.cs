@@ -6,7 +6,7 @@ namespace Silksprite.AvatarRankerVista.Core
 {
     public class AvatarReport
     {
-        public readonly string AvatarName;
+        public readonly string AvatarPath;
         public readonly string AvatarSceneName;
         public readonly Regulation Regulation;
         public readonly bool IsMatchingPlatform;
@@ -20,7 +20,7 @@ namespace Silksprite.AvatarRankerVista.Core
 
         public AvatarReport(AvatarContext avatarContext, Regulation regulation)
         {
-            AvatarName = avatarContext.AvatarName;
+            AvatarPath = avatarContext.AvatarPath;
             AvatarSceneName = avatarContext.AvatarSceneName;
             Regulation = regulation;
             IsMatchingPlatform = regulation.IsMatchingPlatform(avatarContext);

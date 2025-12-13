@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Silksprite.AvatarRankerVista.Window;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
         List<SerializedAvatarReport> avatarReports = new List<SerializedAvatarReport>();
 
         public bool IsMultiScene { get; private set; }
-        public IEnumerable<SerializedAvatarName> AvatarNames => avatarReports.Select(x => x.avatarName).Distinct();
+        public IEnumerable<SerializedAvatarReference> AvatarNames => avatarReports.Select(x => x.avatarReference).Distinct();
 
         public event Action Changed;
 
@@ -37,7 +36,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
             for (var i = 0; i < avatarReports.Count; i++)
             {
                 var report = avatarReports[i];
-                if (report.avatarName != avatarReport.avatarName
+                if (report.avatarReference != avatarReport.avatarReference
                     || report.regulation.id != avatarReport.regulation.id)
                 {
                     continue;
@@ -51,9 +50,9 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
             avatarReports.Add(avatarReport);
         }
 
-        public IEnumerable<SerializedAvatarReport> ForAvatars(SerializedAvatarName[] avatarNames)
+        public IEnumerable<SerializedAvatarReport> ForAvatars(SerializedAvatarReference[] avatarNames)
         {
-            return avatarReports.Where(report => avatarNames.Contains(report.avatarName) && AvatarRankerSettingsRepository.instance.GetRegulationEnabled(report.regulation));
+            return avatarReports.Where(report => avatarNames.Contains(report.avatarReference) && AvatarRankerSettingsRepository.instance.GetRegulationEnabled(report.regulation));
         }
 
         public void Clear()
