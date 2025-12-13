@@ -1,13 +1,12 @@
 using System;
-using System.Linq;
 using Ablet.API;
 using Ablet.API.V1.Attributes;
 using Ablet.EditorAPI.V1;
 using Ablet.EditorAPI.V1.Attributes;
 using Ablet.EditorAPI.V1.Extensions.BuildReporter;
-using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.View.UIElements;
+using Silksprite.AvatarRankerVista.View.Window;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -43,11 +42,6 @@ namespace Silksprite.AvatarRankerVista.Ablet
     {
         public Type ForType => typeof(AvatarRankerVistaReporter);
 
-        public VisualElement RenderSettingsUI()
-        {
-            var regulationListView = new RegulationListView();
-            regulationListView.Draw(RegulationRepository.Instance.AllRegulations().ToList());
-            return regulationListView;
-        }
+        public VisualElement RenderSettingsUI() => new SettingsUIWindow();
     }
 }
