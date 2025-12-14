@@ -1,6 +1,8 @@
 using System.Linq;
+using Ablet;
 using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
+using Silksprite.AvatarRankerVista.Core.Utils;
 using Silksprite.AvatarRankerVista.View.UIElements;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -23,8 +25,19 @@ namespace Silksprite.AvatarRankerVista.View.Window
             
             showFullReport.RegisterValueChangedCallback(evt => OnShowFullReportChanged(evt.newValue));
             regulationListView.Draw(RegulationRepository.Instance.AllRegulations().ToList());
+            
+            var manualMeasureButton = container.Q<Button>("manualMeasureButton");
+            manualMeasureButton.clicked += OnManualMeasure;
         }
-        
+
+        void OnManualMeasure()
+        {
+            foreach (var avatar in AbletFacade.GetSceneEntrypoints(false))
+            {
+                AvatarReportService.MeasureAll(avatar.gameObject, false);
+            }
+        }
+
         void OnShowFullReportChanged(bool newValue)
         {
             AvatarRankerSettingsRepository.instance.ShowFullReport = newValue;

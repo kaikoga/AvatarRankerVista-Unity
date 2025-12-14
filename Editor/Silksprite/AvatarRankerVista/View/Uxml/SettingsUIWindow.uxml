@@ -6,8 +6,7 @@
     xmlns:arv="Silksprite.AvatarRankerVista.View.UIElements"
     xsi:noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd"
 >
-    <engine:VisualElement class="row">
-        <arv:RegulationListView name="regulationList" />
-        <engine:Toggle name="showFullReportToggle" label="Show Full Report" />
-    </engine:VisualElement>
+    <arv:RegulationListView name="regulationList" />
+    <engine:Toggle name="showFullReportToggle" label="Show Full Report" />
+    <engine:Button name="manualMeasureButton" text="Manual Measure Scene Avatars" />
 </engine:UXML>
