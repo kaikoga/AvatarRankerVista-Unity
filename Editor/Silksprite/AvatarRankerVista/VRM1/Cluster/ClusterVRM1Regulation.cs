@@ -19,12 +19,22 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             return avatarContext.AvatarRootObject.GetComponent<Vrm10Instance>();
         }
 
+        static Color ToColor(uint argb)
+        {
+            var a = (byte)((argb & 0xff000000) >> 24);
+            var r = (byte)((argb & 0x00ff0000) >> 16);
+            var g = (byte)((argb & 0x0000ff00) >> 8);
+            var b = (byte)(argb & 0x000000ff);
+            return new Color32(r, g, b, a);
+        }
+
         public IEnumerable<RegulationLevel> DefineLevels()
         {
             yield return new RegulationLevel.Builder
             {
                 Id = "original",
                 DisplayName = "Original",
+                Color = ToColor(0xff00ffff),
                 Criteria = Original()
             }.Build();
 
@@ -32,6 +42,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "compressed",
                 DisplayName = "Compressed",
+                Color = ToColor(0xff00008b),
                 Criteria = Compressed()
             }.Build();
 
@@ -39,6 +50,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "unlimited",
                 DisplayName = "Unlimited",
+                Color = ToColor(0xffc71585),
                 Criteria = Unlimited()
             }.Build();
         }

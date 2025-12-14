@@ -21,12 +21,22 @@ namespace Silksprite.AvatarRankerVista.VRChat
 
         public abstract bool IsMatchingPlatform(AvatarContext avatarContext);
 
+        static Color ToColor(uint argb)
+        {
+            var a = (byte)((argb & 0xff000000) >> 24);
+            var r = (byte)((argb & 0x00ff0000) >> 16);
+            var g = (byte)((argb & 0x0000ff00) >> 8);
+            var b = (byte)(argb & 0x000000ff);
+            return new Color32(r, g, b, a);
+        }
+
         public IEnumerable<RegulationLevel> DefineLevels()
         {
             yield return new RegulationLevel.Builder
             {
                 Id = "excellent",
                 DisplayName = "Excellent",
+                Color = ToColor(0xff90ee90),
                 Criteria = Excellent()
             }.Build();
             
@@ -34,6 +44,7 @@ namespace Silksprite.AvatarRankerVista.VRChat
             {
                 Id = "good",
                 DisplayName = "Good",
+                Color = ToColor(0xff008000),
                 Criteria = Good()
             }.Build();
             
@@ -41,6 +52,7 @@ namespace Silksprite.AvatarRankerVista.VRChat
             {
                 Id = "medium",
                 DisplayName = "Medium",
+                Color = ToColor(0xffdaa520),
                 Criteria = Medium()
             }.Build();
             
@@ -48,6 +60,7 @@ namespace Silksprite.AvatarRankerVista.VRChat
             {
                 Id = "poor",
                 DisplayName = "Poor",
+                Color = ToColor(0xffff4500),
                 Criteria = Poor()
             }.Build();
             
@@ -55,6 +68,7 @@ namespace Silksprite.AvatarRankerVista.VRChat
             {
                 Id = "veryPoor",
                 DisplayName = "VeryPoor",
+                Color = ToColor(0xff8b0000),
                 Criteria = VeryPoor()
             }.Build();
         }

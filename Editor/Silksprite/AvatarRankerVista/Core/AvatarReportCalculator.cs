@@ -27,10 +27,10 @@ namespace Silksprite.AvatarRankerVista.Core
                     foreach (var criterionDef in level.Criteria)
                     {
                         var measured = criterionSet.Measure(criterionDef, context);
-                        avatarReport.JudgeLevel(measured, criterionDef, level);
+                        avatarReport.JudgeLevel(measured, criterionDef, regulation, level);
                     }
                 }
-                avatarReport.DecideDefaultLevel(levels.Last());
+                avatarReport.DecideDefaultLevel(regulation, levels.Last());
                 return avatarReport;
             });
         }

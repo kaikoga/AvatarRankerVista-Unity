@@ -14,6 +14,8 @@ namespace Silksprite.AvatarRankerVista.Core
         public bool IsMatchingPlatform(AvatarContext avatarContext) => _regulation.IsMatchingPlatform(avatarContext);
 
         public readonly RegulationLevel[] Levels;
+        
+        public RegulationLevel GetLevel(string id) => Levels.FirstOrDefault(level => level.Id == id);
 
         public Regulation(IRegulationProvider regulation)
         {

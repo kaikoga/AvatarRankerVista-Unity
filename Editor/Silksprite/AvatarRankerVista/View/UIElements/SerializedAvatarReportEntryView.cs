@@ -1,3 +1,4 @@
+using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -30,7 +31,7 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
             _levelText.text = entry.level.displayName;
             _levelText.ClearClassList();
             _levelText.AddToClassList("prop-level");
-            _levelText.AddToClassList(entry.level.id);
+            _levelText.style.borderLeftColor = RegulationRepository.Instance.GetRegulation(entry.regulation.id).GetLevel(entry.level.id).Color;
 
             if (string.IsNullOrEmpty(entry.recommendedValue))
             {

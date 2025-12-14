@@ -84,6 +84,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
     public class SerializedAvatarReportEntry
     {
         public SerializedCriterionRef criterion;
+        public SerializedRegulationRef regulation;
         public SerializedRegulationLevelRef level;
         public string recommendedValue;
         public SerializedRegulationLevelRef recommendedLevel;

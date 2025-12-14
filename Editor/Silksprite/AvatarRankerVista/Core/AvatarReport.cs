@@ -26,11 +26,11 @@ namespace Silksprite.AvatarRankerVista.Core
             IsMatchingPlatform = regulation.IsMatchingPlatform(avatarContext);
         }
 
-        public void JudgeLevel(Criterion criterion, Criterion levelCriterion, RegulationLevel regulationLevel)
+        public void JudgeLevel(Criterion criterion, Criterion levelCriterion, Regulation regulation, RegulationLevel regulationLevel)
         {
             if (criterion.Fulfills(levelCriterion))
             {
-                DecideLevel(criterion, regulationLevel);
+                DecideLevel(criterion, regulation, regulationLevel);
             }
             else
             {
@@ -39,16 +39,16 @@ namespace Silksprite.AvatarRankerVista.Core
             }
         }
 
-        public void DecideDefaultLevel(RegulationLevel regulationLevel)
+        public void DecideDefaultLevel(Regulation regulation, RegulationLevel regulationLevel)
         {
             foreach (var criterion in _undecidedCriteria.Values)
             {
-                DecideLevel(criterion, regulationLevel);
+                DecideLevel(criterion, regulation, regulationLevel);
             }
             _undecidedCriteria.Clear();
         }
 
-        void DecideLevel(Criterion criterion, RegulationLevel regulationLevel)
+        void DecideLevel(Criterion criterion, Regulation regulation, RegulationLevel regulationLevel)
         {
             if (_entries.ContainsKey(criterion.Type))
             {
@@ -59,6 +59,7 @@ namespace Silksprite.AvatarRankerVista.Core
                 criterion.Type,
                 new AvatarReportEntry(
                     criterion,
+                    regulation,
                     regulationLevel,
                     recommended.criterion,
                     recommended.level));
@@ -75,13 +76,15 @@ namespace Silksprite.AvatarRankerVista.Core
         public class AvatarReportEntry
         {
             public readonly Criterion Criterion;
+            public readonly Regulation Regulation;
             public readonly RegulationLevel Level;
             public readonly Criterion RecommendedValue;
             public readonly RegulationLevel RecommendedLevel;
             
-            public AvatarReportEntry(Criterion criterion, RegulationLevel level, Criterion recommendedValue, RegulationLevel recommendedLevel)
+            public AvatarReportEntry(Criterion criterion, Regulation regulation, RegulationLevel level, Criterion recommendedValue, RegulationLevel recommendedLevel)
             {
                 Criterion = criterion;
+                Regulation = regulation;
                 Level = level;
                 RecommendedValue = recommendedValue;
                 RecommendedLevel = recommendedLevel;

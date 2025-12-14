@@ -49,6 +49,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
             return new SerializedAvatarReportEntry
             {
                 criterion = entry.Criterion.Export(),
+                regulation = entry.Regulation.Export(),
                 level = entry.Level.Export(),
                 recommendedValue = entry.RecommendedValue?.ValueString ?? "",
                 recommendedLevel = entry.RecommendedLevel?.Export() ?? new SerializedRegulationLevelRef()

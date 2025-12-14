@@ -73,35 +73,3 @@ AbletConsoleWindowView #avatarNameText {
     width: 80px;
     border-left-width: 6px;
 }
-
-.prop-level.excellent {
-    border-left-color: lightgreen;
-}
-
-.prop-level.good {
-    border-left-color: green;
-}
-
-.prop-level.medium {
-    border-left-color: goldenrod;
-}
-
-.prop-level.poor {
-    border-left-color: orangered;
-}
-
-.prop-level.veryPoor {
-    border-left-color: darkred;
-}
-
-.prop-level.original {
-    border-left-color: cyan;
-}
-
-.prop-level.compressed {
-    border-left-color: darkblue;
-}
-
-.prop-level.unlimited {
-    border-left-color: mediumvioletred;
-}
