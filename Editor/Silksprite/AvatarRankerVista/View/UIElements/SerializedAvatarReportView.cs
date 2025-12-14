@@ -1,4 +1,5 @@
 using System.Linq;
+using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -9,23 +10,26 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
     {
         const string UxmlPath = "Packages/net.kaikoga.arv/Editor/Silksprite/AvatarRankerVista/View/Uxml/SerializedAvatarReportView.uxml";
 
-        readonly Label _avatarNameText;
-        readonly Label _avatarStatusText;
+        readonly Label _avatarOriginText;
+        readonly Label _avatarOverallLevelText;
         readonly VisualElement _resultContainer;
         
         public SerializedAvatarReportView()
         {
             var container = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UxmlPath).CloneTree();
-            _avatarNameText = container.Q<Label>("avatarNameText");
-            _avatarStatusText = container.Q<Label>("avatarStatusText");
+            _avatarOriginText = container.Q<Label>("avatarOriginText");
+            _avatarOverallLevelText = container.Q<Label>("avatarOverallLevelText");
             _resultContainer = container.Q<VisualElement>("resultContainer");
             hierarchy.Add(container);
         }
 
         public void Draw(SerializedAvatarReport avatarReport)
         {
-            _avatarNameText.text = avatarReport.avatarReference.FullName;
-            _avatarStatusText.text = $"{avatarReport.regulation.displayName} ({avatarReport.origin.ToString()}): {avatarReport.overallLevel.displayName}";
+            _avatarOriginText.text = $"{avatarReport.regulation.displayName} ({avatarReport.origin.ToString()}): ";
+            _avatarOverallLevelText.text = avatarReport.overallLevel.displayName;
+            _avatarOverallLevelText.ClearClassList();
+            _avatarOverallLevelText.AddToClassList("prop-level");
+            _avatarOverallLevelText.style.borderLeftColor = RegulationRepository.Instance.GetRegulation(avatarReport.regulation.id).GetLevel(avatarReport.overallLevel.id).Color;
             _resultContainer.Clear();
 
             var results = AvatarRankerSettingsRepository.instance.ShowFullReport

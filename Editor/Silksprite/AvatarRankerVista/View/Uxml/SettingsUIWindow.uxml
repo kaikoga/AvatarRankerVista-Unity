@@ -3,13 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:engine="UnityEngine.UIElements"
     xmlns:editor="UnityEditor.UIElements"
+    xmlns:arv="Silksprite.AvatarRankerVista.View.UIElements"
     xsi:noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd"
 >
-    <engine:VisualElement class="header row">
-        <engine:Label name="avatarOriginText" />
-        <engine:Label name="avatarOverallLevelText" />
-    </engine:VisualElement>
-    <engine:VisualElement class="box">
-        <engine:VisualElement name="resultContainer" />
+    <engine:VisualElement class="row">
+        <arv:RegulationListView name="regulationList" />
+        <engine:Toggle name="showFullReportToggle" label="Show Full Report" />
     </engine:VisualElement>
 </engine:UXML>

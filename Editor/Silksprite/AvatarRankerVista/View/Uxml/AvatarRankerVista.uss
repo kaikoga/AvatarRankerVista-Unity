@@ -31,12 +31,8 @@ Toolbar {
     flex-grow: 1;
 }
 
-#avatarNameText {
+#avatarOverallLevelText {
     -unity-font-style: bold;
-}
-
-AbletConsoleWindowView #avatarNameText {
-    display: none;
 }
 
 .header {
@@ -72,4 +68,5 @@ AbletConsoleWindowView #avatarNameText {
 .prop-level {
     width: 80px;
     border-left-width: 6px;
+    padding-left: 1px;
 }
