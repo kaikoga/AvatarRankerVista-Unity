@@ -12,7 +12,7 @@ namespace Silksprite.AvatarRankerVista.API
         readonly Dictionary<Type, object> _cache = new Dictionary<Type, object>();
 
         public readonly string AvatarPath;
-        public readonly string AvatarSceneName;
+        public readonly string AvatarScenePath;
 
         public AvatarContext(GameObject avatarRootObject)
         {
@@ -23,7 +23,7 @@ namespace Silksprite.AvatarRankerVista.API
                 avatarPath = avatarPath.Substring(0, avatarPath.Length - "(Clone)".Length);
             }
             AvatarPath = avatarPath;
-            AvatarSceneName = avatarRootObject.scene.name;
+            AvatarScenePath = avatarRootObject.scene.path;
         }
 
         public T Resolve<T, TCache>()

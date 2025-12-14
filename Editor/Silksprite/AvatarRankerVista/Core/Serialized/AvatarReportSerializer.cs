@@ -11,7 +11,7 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
             {
                 avatarReference = new SerializedAvatarReference
                 {
-                    sceneName = avatarReport.AvatarSceneName,
+                    scenePath = avatarReport.AvatarScenePath,
                     path = avatarReport.AvatarPath,
                 },
                 origin = origin,

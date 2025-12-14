@@ -26,24 +26,24 @@ namespace Silksprite.AvatarRankerVista.Core.Serialized
     [Serializable]
     public struct SerializedAvatarReference : IEquatable<SerializedAvatarReference>
     {
-        public string sceneName;
+        public string scenePath;
         public string path;
 
         public string Name => System.IO.Path.GetFileName(path);
 
-        public string FullName => $"{sceneName}:{Name}";
+        public string FullName => $"{scenePath}:{Name}";
         public string DisplayName => FullName;
 
         public override string ToString() => DisplayName;
 
         public bool Equals(SerializedAvatarReference other)
         {
-            return sceneName == other.sceneName && path == other.path;
+            return scenePath == other.scenePath && path == other.path;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(sceneName, path);
+            return HashCode.Combine(scenePath, path);
         }
 
         public static bool operator ==(SerializedAvatarReference left, SerializedAvatarReference right)

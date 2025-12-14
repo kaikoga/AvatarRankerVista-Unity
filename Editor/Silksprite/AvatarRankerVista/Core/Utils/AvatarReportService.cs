@@ -34,7 +34,7 @@ namespace Silksprite.AvatarRankerVista.Core.Utils
             {
                 BuildReportRepository.Instance.Add(new SerializedBuildReport(
                     new SerializedEntrypointReference(
-                        avatarReport.avatarReference.sceneName,
+                        avatarReport.avatarReference.scenePath,
                         avatarReport.avatarReference.path
                     ),
                     "net.kaikoga.arv",
