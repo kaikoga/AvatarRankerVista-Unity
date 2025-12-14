@@ -28,12 +28,8 @@ namespace Silksprite.AvatarRankerVista.View
         [MenuItem("Tools/Avatar Tinker Vista/Avatar Ranker Vista - Manual Measure", true, 100002)]
         static bool ValidateManualMeasure()
         {
-            if (Selection.activeGameObject == null)
-            {
-                return false;
-            }
-            var platform = PlatformRegistry.Instance.GuessPlatform(Selection.activeGameObject);
-            return platform != null;
+            return Selection.activeGameObject
+                   && PlatformRegistry.Instance.TryGuessPlatform(Selection.activeGameObject, out _);
         }
         
         [MenuItem("Tools/Avatar Tinker Vista/Avatar Ranker Vista - Manual Measure", false, 100002)]
