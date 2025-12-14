@@ -1,17 +1,18 @@
 using JetBrains.Annotations;
 using Silksprite.AvatarRankerVista.API;
+using Silksprite.AvatarRankerVista.Core;
 
 namespace Silksprite.AvatarRankerVista.VRChat.Criteria
 {
     [PublicAPI]
-    class VRChatParticleCollisionEnabled : ICriterionProvider<int>
+    class VRChatParticleCollisionEnabled : ICriterionProvider<NegativeFactor>
     {
         public string Id => "net.kaikoga.arv.vrchat.particleCollisionEnabled";
         public string DisplayName => "Particle Collision Enabled";
         
-        public int Measure(AvatarContext context)
+        public NegativeFactor Measure(AvatarContext context)
         {
-            return context.GetVRChatAvatarPerformanceStats().particleCollisionEnabled ?? true ? 1 : 0;
+            return context.GetVRChatAvatarPerformanceStats().particleCollisionEnabled ?? true ? NegativeFactor.True : NegativeFactor.False;
         }
     }
 }

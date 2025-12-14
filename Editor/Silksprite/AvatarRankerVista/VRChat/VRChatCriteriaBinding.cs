@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Silksprite.AvatarRankerVista.API;
+using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Generic.Criteria;
 using Silksprite.AvatarRankerVista.VRChat.Criteria;
 using UnityEngine;
@@ -55,8 +56,8 @@ namespace Silksprite.AvatarRankerVista.VRChat
     where TParticleSystemCount : class, ICriterionProvider<int>
     where TParticleTotalCount : class, ICriterionProvider<int>
     where TParticleMaxMeshPolyCount : class, ICriterionProvider<int>
-    where TParticleTrailsEnabled : class, ICriterionProvider<int>
-    where TParticleCollisionEnabled : class, ICriterionProvider<int>
+    where TParticleTrailsEnabled : class, ICriterionProvider<NegativeFactor>
+    where TParticleCollisionEnabled : class, ICriterionProvider<NegativeFactor>
     where TTrailRendererCount : class, ICriterionProvider<int>
     where TLineRendererCount : class, ICriterionProvider<int>
     where TClothCount : class, ICriterionProvider<int>
@@ -86,8 +87,8 @@ namespace Silksprite.AvatarRankerVista.VRChat
             yield return new Criterion<int, TParticleSystemCount>(level.particleSystemCount);
             yield return new Criterion<int, TParticleTotalCount>(level.particleTotalCount);
             yield return new Criterion<int, TParticleMaxMeshPolyCount>(level.particleMaxMeshPolyCount);
-            yield return new Criterion<int, TParticleTrailsEnabled>(level.particleTrailsEnabled ? 1 : 0);
-            yield return new Criterion<int, TParticleCollisionEnabled>(level.particleCollisionEnabled ? 1 : 0);
+            yield return new Criterion<NegativeFactor, TParticleTrailsEnabled>(level.particleTrailsEnabled ? NegativeFactor.True : NegativeFactor.False);
+            yield return new Criterion<NegativeFactor, TParticleCollisionEnabled>(level.particleCollisionEnabled ? NegativeFactor.True : NegativeFactor.False);
             yield return new Criterion<int, TTrailRendererCount>(level.trailRendererCount);
             yield return new Criterion<int, TLineRendererCount>(level.lineRendererCount);
             yield return new Criterion<int, TClothCount>(level.clothCount);
@@ -152,8 +153,8 @@ namespace Silksprite.AvatarRankerVista.VRChat
         DummyCriteria<int>,
         DummyCriteria<int>,
         DummyCriteria<int>,
-        DummyCriteria<int>,
-        DummyCriteria<int>,
+        DummyCriteria<NegativeFactor>,
+        DummyCriteria<NegativeFactor>,
         ComponentCount<TrailRenderer>,
         ComponentCount<LineRenderer>,
         ComponentCount<Cloth>,
