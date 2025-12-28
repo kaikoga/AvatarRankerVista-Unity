@@ -8,6 +8,7 @@ using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.View.UIElements;
 using Silksprite.AvatarRankerVista.View.Window;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Silksprite.AvatarRankerVista.Ablet
@@ -24,7 +25,7 @@ namespace Silksprite.AvatarRankerVista.Ablet
 
         StyleSheet IAbletBuildReporter.StyleSheet => AssetDatabase.LoadAssetAtPath<StyleSheet>(UssPath);
 
-        VisualElement IAbletBuildReporter.Render(IAbletSerializedBuildReportPayload payload)
+        VisualElement IAbletBuildReporter.Render(IAbletSerializedBuildReportPayload payload, GameObject entrypointObject)
         {
             var avatarReport = (SerializedAvatarReport)payload;
             if (!AvatarRankerSettingsRepository.instance.GetRegulationEnabled(avatarReport.regulation))
