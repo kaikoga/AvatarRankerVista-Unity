@@ -18,7 +18,7 @@ namespace Silksprite.AvatarRankerVista.Ablet
     {
         const string UssPath = "Packages/net.kaikoga.arv/Editor/Silksprite/AvatarRankerVista/View/Uxml/AvatarRankerVista.uss";
 
-        string IAbletDefinition.Id => "net.kaikoga.arv.reporting";
+        string IAbletDefinition.Id => "Silksprite.AvatarRankerVista.Reporting";
         string IAbletDefinition.DisplayName => "Avatar Ranker Vista";
         
         Type IAbletBuildReporter.ForType => typeof(SerializedAvatarReport);

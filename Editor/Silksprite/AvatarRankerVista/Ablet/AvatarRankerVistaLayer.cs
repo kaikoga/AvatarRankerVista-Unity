@@ -9,7 +9,7 @@ namespace Silksprite.AvatarRankerVista.Ablet
     [AbletLayer]
     class AvatarRankerVistaLayer : IAbletLayer
     {
-        public string Id => "net.kaikoga.arv";
+        public string Id => "Silksprite.AvatarRankerVista";
         public string DisplayName => "Avatar Ranker Vista";
         
         public void Configure(IDependencyConfigurator config)
