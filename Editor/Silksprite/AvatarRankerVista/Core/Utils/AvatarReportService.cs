@@ -37,7 +37,7 @@ namespace Silksprite.AvatarRankerVista.Core.Utils
                         avatarReport.avatarReference.scenePath,
                         avatarReport.avatarReference.path
                     ),
-                    "net.kaikoga.arv",
+                    "Silksprite.AvatarRankerVista",
                     avatarReport
                 ));
             }
