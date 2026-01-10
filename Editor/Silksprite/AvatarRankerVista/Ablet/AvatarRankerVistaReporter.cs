@@ -1,10 +1,12 @@
 using System;
 using Ablet.API;
+using Ablet.API.V1;
 using Ablet.API.V1.Attributes;
 using Ablet.EditorAPI.V1;
 using Ablet.EditorAPI.V1.Attributes;
 using Ablet.EditorAPI.V1.Extensions.BuildReporter;
 using Silksprite.AvatarRankerVista.Core.Serialized;
+using Silksprite.AvatarRankerVista.Core.Utils;
 using Silksprite.AvatarRankerVista.View.UIElements;
 using Silksprite.AvatarRankerVista.View.Window;
 using UnityEditor;
@@ -41,8 +43,26 @@ namespace Silksprite.AvatarRankerVista.Ablet
     [AbletExtension]
     class AvatarRankerVistaSettingsUIExtension : ISettingsUIExtension
     {
-        public Type ForType => typeof(AvatarRankerVistaReporter);
+        Type IAbletExtension.ForType => typeof(AvatarRankerVistaReporter);
 
-        public VisualElement RenderSettingsUI() => new SettingsUIWindow();
+        VisualElement ISettingsUIExtension.RenderSettingsUI() => new SettingsUIWindow();
+    }
+
+    [AbletExtension]
+    class AvatarRankerVistaManualReportUIExtension : IManualReportUIExtension
+    {
+        Type IAbletExtension.ForType => typeof(AvatarRankerVistaReporter);
+
+        VisualElement IManualReportUIExtension.RenderManualReportUI(GameObject entrypointObject)
+        {
+            var container = new VisualElement();
+            var button = new Button
+            {
+                text = "Measure EditMode (Avatar Ranker Vista)"
+            };
+            button.clicked += () => AvatarReportService.MeasureAll(entrypointObject, false);
+            container.Add(button);
+            return container;
+        }
     }
 }
