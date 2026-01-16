@@ -20,7 +20,7 @@ namespace Silksprite.AvatarRankerVista.Ablet
         {
             return AbletBuildProcedure.Create(context =>
             {
-                if (context.Argument.Platform.Id != BuiltinPlatformIds.VRChatAvatarSDK3)
+                if (context.Argument.TargetPlatform.Id != BuiltinPlatformIds.VRChatAvatarSDK3)
                 {
                     AvatarReportService.MeasureAll(context.CurrentRootObject, true);
                 }
