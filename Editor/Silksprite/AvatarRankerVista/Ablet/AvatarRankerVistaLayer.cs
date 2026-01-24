@@ -1,3 +1,4 @@
+using System;
 using Ablet.API.V1;
 using Ablet.API.V1.Attributes;
 using Ablet.API.V1.Building;
@@ -18,13 +19,19 @@ namespace Silksprite.AvatarRankerVista.Ablet
         }
         public AbletProcedure ToProcedure(IBuildArgument argument)
         {
-            return AbletBuildProcedure.Create(context =>
+            switch (argument.BuildInitiationSourceMode)
             {
-                if (context.Argument.TargetPlatform.Id != BuiltinPlatformIds.VRChatAvatarSDK3)
-                {
-                    AvatarReportService.MeasureAll(context.CurrentRootObject, true);
-                }
-            });
+                case BuildInitiationSourceMode.Ablet:
+                    return AbletBuildProcedure.Create(context =>
+                    {
+                        AvatarReportService.MeasureAll(context.CurrentRootObject, true);
+                    });
+                case BuildInitiationSourceMode.PlatformBuild:
+                case BuildInitiationSourceMode.NDMF:
+                    return null;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(argument.BuildInitiationSourceMode));
+            }
         }
     }
 }
