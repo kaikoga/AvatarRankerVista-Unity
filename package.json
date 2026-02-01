@@ -1,8 +1,8 @@
 {
   "name": "net.kaikoga.arv",
-  "url": "https://vpm.kaikoga.net/net.kaikoga.arv/net.kaikoga.arv-2.0.0.zip",
+  "url": "https://vpm.kaikoga.net/net.kaikoga.arv/net.kaikoga.arv-2.1.0.zip",
   "displayName": "Avatar Ranker Vista",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "unity": "2019.4",
   "description": "Show Performance Ranks and Not Performance Ranks",
   "author": {
@@ -11,6 +11,6 @@
     "url": "https://github.com/kaikoga/AvatarRankerVista-Unity"
   },
   "vpmDependencies": {
-    "net.kaikoga.ablet": "^2.0.0"
+    "net.kaikoga.ablet": "^2.1.0"
   }
 }
