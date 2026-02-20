@@ -11,6 +11,7 @@
     "url": "https://github.com/kaikoga/AvatarRankerVista-Unity"
   },
   "vpmDependencies": {
-    "net.kaikoga.ablet": "^2.1.0"
+    "net.kaikoga.ablet": "^2.1.0",
+    "net.kaikoga.loch": "^2.0.0"
   }
 }

@@ -13,6 +13,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+using LElements = Silksprite.Loch.UIElements;
+
+using static Silksprite.Loch.Tools.LochTool;
+
 namespace Silksprite.AvatarRankerVista.Ablet
 {
     [AbletBuildReporter]
@@ -56,9 +60,10 @@ namespace Silksprite.AvatarRankerVista.Ablet
         VisualElement IManualReportUIExtension.RenderManualReportUI(GameObject entrypointObject)
         {
             var container = new VisualElement();
-            var button = new Button
+            var button = new LElements.Button
             {
-                text = "Measure EditMode (Avatar Ranker Vista)"
+                text = "Measure EditMode (Avatar Ranker Vista)",
+                loc = Loc("AvatarRankerVistaManualReportUIExtension::measureEditModeButton")
             };
             button.clicked += () => AvatarReportService.MeasureAll(entrypointObject, false);
             container.Add(button);

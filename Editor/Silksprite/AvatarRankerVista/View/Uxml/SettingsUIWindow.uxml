@@ -4,9 +4,10 @@
     xmlns:engine="UnityEngine.UIElements"
     xmlns:editor="UnityEditor.UIElements"
     xmlns:arv="Silksprite.AvatarRankerVista.View.UIElements"
+    xmlns:loch="Silksprite.Loch.UIElements"
     xsi:noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd"
 >
     <arv:RegulationListView name="regulationList" />
-    <engine:Toggle name="showFullReportToggle" label="Show Full Report" />
-    <engine:Button name="manualMeasureButton" text="Manual Measure Scene Avatars" />
+    <loch:Toggle name="showFullReportToggle" label="Show Full Report" />
+    <loch:Button name="manualMeasureButton" text="Manual Measure Scene Avatars" />
 </engine:UXML>

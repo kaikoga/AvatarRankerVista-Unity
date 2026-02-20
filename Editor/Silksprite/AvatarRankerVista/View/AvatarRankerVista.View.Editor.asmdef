@@ -4,6 +4,7 @@
   "references": [
     "AvatarRankerVista.Editor",
     "Ablet",
+    "Loch",
     "AvatarRankerVista.API.Editor"
   ],
   "includePlatforms": [

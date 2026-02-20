@@ -2,11 +2,12 @@
   "name": "AvatarRankerVista.Ablet.Editor",
   "rootNamespace": "Silksprite.AvatarRankerVista.Ablet",
   "references": [
-    "AvatarRankerVista.Editor",
+    "Loch",
     "Ablet.API",
     "Ablet",
     "Ablet.Builtin",
     "Ablet.EditorAPI.Editor",
+    "AvatarRankerVista.Editor",
     "AvatarRankerVista.View.Editor"
   ],
   "includePlatforms": [

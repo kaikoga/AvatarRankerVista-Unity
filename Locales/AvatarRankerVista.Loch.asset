@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcbc496cfa546e9b08407d1d8eb1005, type: 3}
+  m_Name: AvatarRankerVista.Loch
+  m_EditorClassIdentifier: 
+  key: Silksprite.AvatarRankerVista
+  assemblies:
+  - AvatarRankerVista.
+  po:
+  - {fileID: 9010515335742159986, guid: cab45d2c7dcf4b3887d44510ea546960, type: 3}
+  - {fileID: 9010515335742159986, guid: ddb8259eb57f400fac2439e01c2f6d00, type: 3}
