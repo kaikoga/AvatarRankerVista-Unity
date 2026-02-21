@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: Silksprite.AvatarRankerVista
   assemblies:
-  - AvatarRankerVista.
+  - AvatarRankerVista.Ablet.Editor
+  - AvatarRankerVista.API.Editor
+  - AvatarRankerVista.Editor
+  - AvatarRankerVista.Generic.Editor
+  - AvatarRankerVista.Locales
+  - AvatarRankerVista.Ndmf.Editor
+  - AvatarRankerVista.View.Editor
+  - AvatarRankerVista.VRChat.Editor
+  - AvatarRankerVista.VRM1.Cluster.Editor
+  assemblyPrefixes: []
   po:
   - {fileID: 9010515335742159986, guid: cab45d2c7dcf4b3887d44510ea546960, type: 3}
   - {fileID: 9010515335742159986, guid: ddb8259eb57f400fac2439e01c2f6d00, type: 3}
