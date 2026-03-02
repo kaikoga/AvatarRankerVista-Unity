@@ -11,12 +11,13 @@
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
+    "overrideReferences": true,
     "precompiledReferences": [
-      "VRCSDKBase.dll",
-      "VRCSDK3A.dll",
-      "VRC.Dynamics.dll",
-      "VRC.SDK3.Dynamics.PhysBone.dll"
+        "VRCSDKBase.dll",
+        "VRCSDKBase-Editor.dll",
+        "VRCSDK3A.dll",
+        "VRC.Dynamics.dll",
+        "VRC.SDK3.Dynamics.PhysBone.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": ["ARV_VRCSDK3_AVATARS"],
