@@ -3,20 +3,20 @@ using Silksprite.AvatarRankerVista.API;
 using Silksprite.AvatarRankerVista.API.Attributes;
 using Silksprite.AvatarRankerVista.Generic.Criteria;
 using UnityEngine;
-using UniVRM10;
+using VRM;
 
-namespace Silksprite.AvatarRankerVista.VRM1.Cluster
+namespace Silksprite.AvatarRankerVista.VRM0.Cluster
 {
     [RegulationProvider]
-    class ClusterVRM1Regulation : IRegulationProvider
+    class ClusterVRM0Regulation : IRegulationProvider
     {
-        public string Id => "net.kaikoga.arv.vrm1.cluster";
-        public string DisplayName => "cluster VRM1.0";
+        public string Id => "net.kaikoga.arv.vrm0.cluster";
+        public string DisplayName => "cluster VRM0.x";
         public int Priority => 1000;
 
         public bool IsMatchingPlatform(AvatarContext avatarContext)
         {
-            return avatarContext.AvatarRootObject.GetComponent<Vrm10Instance>();
+            return avatarContext.AvatarRootObject.GetComponent<VRMMeta>();
         }
 
         static Color ToColor(uint argb)
@@ -34,7 +34,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "low",
                 DisplayName = "Low",
-                Color = ToColor(0xff00ffff),
+                Color = ToColor(0xff00008b),
                 Criteria = Low()
             }.Build();
 
@@ -42,7 +42,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "medium",
                 DisplayName = "Medium",
-                Color = ToColor(0xff00ffff),
+                Color = ToColor(0xff00008b),
                 Criteria = Medium()
             }.Build();
 
@@ -50,7 +50,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "high",
                 DisplayName = "High",
-                Color = ToColor(0xff00ffff),
+                Color = ToColor(0xff00008b),
                 Criteria = High()
             }.Build();
 
@@ -58,7 +58,7 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
             {
                 Id = "veryHigh",
                 DisplayName = "VeryHigh",
-                Color = ToColor(0xff00ffff),
+                Color = ToColor(0xff00008b),
                 Criteria = VeryHigh()
             }.Build();
 
@@ -69,75 +69,41 @@ namespace Silksprite.AvatarRankerVista.VRM1.Cluster
                 Color = ToColor(0xffc71585),
                 Criteria = Compressed()
             }.Build();
-
-            yield return new RegulationLevel.Builder
-            {
-                Id = "rejected",
-                DisplayName = "Rejected",
-                Color = ToColor(0xffc71585),
-                Criteria = Rejected()
-            }.Build();
-        }
-
-        static IEnumerable<Criterion> ForUpload()
-        {
-            yield return new Criterion<int, ComponentCount<Transform>>(1000);
-            yield return new Criterion<int, ComponentCount<VRM10SpringBoneJoint>>(200);
-            yield return new Criterion<int, ComponentCount<VRM10SpringBoneCollider>>(500);
-            yield return new Criterion<int, MaterialSlotCount>(25);
-            yield return new Criterion<int, PolygonCount>(72000);
-            yield return new Criterion<int, MaterialCount>(25);
-            yield return new Criterion<int, TextureSize>(8192);
-            // yield return new Criterion<int, TexturePixelCount>(12_000_000);
-            yield return new Criterion<int, ComponentCount<IVrm10Constraint>>(50);
         }
 
         static IEnumerable<Criterion> Low()
         {
-            foreach (var criterion in ForUpload())
-            {
-                yield return criterion;
-            }
+            yield return new Criterion<int, PolygonCount>(32000);
             yield return new Criterion<int, TexturePixelCount>(2_000_000);
+            yield return new Criterion<int, MaterialSlotCount>(100);
+            yield return new Criterion<int, ComponentCount<VRMSpringBone>>(0);
         }
 
         static IEnumerable<Criterion> Medium()
         {
-            foreach (var criterion in ForUpload())
-            {
-                yield return criterion;
-            }
+            yield return new Criterion<int, PolygonCount>(32000);
             yield return new Criterion<int, TexturePixelCount>(4_000_000);
+            yield return new Criterion<int, MaterialSlotCount>(100);
+            yield return new Criterion<int, ComponentCount<VRMSpringBone>>(0);
         }
 
         static IEnumerable<Criterion> High()
         {
-            foreach (var criterion in ForUpload())
-            {
-                yield return criterion;
-            }
+            yield return new Criterion<int, PolygonCount>(64000);
             yield return new Criterion<int, TexturePixelCount>(4_000_000);
+            yield return new Criterion<int, MaterialSlotCount>(100);
+            yield return new Criterion<int, ComponentCount<VRMSpringBone>>(int.MaxValue);
         }
 
         static IEnumerable<Criterion> VeryHigh()
         {
-            foreach (var criterion in ForUpload())
-            {
-                yield return criterion;
-            }
+            yield return new Criterion<int, PolygonCount>(80000);
             yield return new Criterion<int, TexturePixelCount>(12_000_000);
+            yield return new Criterion<int, MaterialSlotCount>(100);
+            yield return new Criterion<int, ComponentCount<VRMSpringBone>>(int.MaxValue);
         }
 
         static IEnumerable<Criterion> Compressed()
-        {
-            foreach (var criterion in ForUpload())
-            {
-                yield return criterion;
-            }
-            yield return new Criterion<int, TexturePixelCount>(int.MaxValue);
-        }
-
-        static IEnumerable<Criterion> Rejected()
         {
             yield break;
         }

@@ -1,8 +1,8 @@
 {
-    "name": "AvatarRankerVista.VRM1.Cluster.Editor",
-    "rootNamespace": "Silksprite.AvatarRankerVista.VRM1.Cluster",
+    "name": "AvatarRankerVista.VRM0.Cluster.Editor",
+    "rootNamespace": "Silksprite.AvatarRankerVista.VRM0.Cluster",
     "references": [
-        "VRM10",
+        "VRM",
         "AvatarRankerVista.API.Editor",
         "AvatarRankerVista.Generic.Editor"
     ],
@@ -15,12 +15,12 @@
     "precompiledReferences": [
     ],
     "autoReferenced": false,
-    "defineConstraints": ["ARV_VRM1"],
+    "defineConstraints": ["ARV_VRM0"],
     "versionDefines": [
         {
-            "name": "com.vrmc.vrm",
+            "name": "com.vrmc.univrm",
             "expression": "0.131.0",
-            "define": "ARV_VRM1"
+            "define": "ARV_VRM0"
         }
     ],
     "noEngineReferences": false
