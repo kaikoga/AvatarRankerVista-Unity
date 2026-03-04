@@ -5,6 +5,7 @@ using Ablet.API.V1.Attributes;
 using Ablet.EditorAPI.V1;
 using Ablet.EditorAPI.V1.Attributes;
 using Ablet.EditorAPI.V1.Extensions.BuildReporter;
+using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.Core.Utils;
 using Silksprite.AvatarRankerVista.View.UIElements;
@@ -35,6 +36,10 @@ namespace Silksprite.AvatarRankerVista.Ablet
         {
             var avatarReport = (SerializedAvatarReport)payload;
             if (!AvatarRankerSettingsRepository.instance.GetRegulationEnabled(avatarReport.regulation))
+            {
+                return null;
+            }
+            if (avatarReport.origin == AvatarReportOrigin.ReferenceBuild && !AvatarRankerSettingsRepository.instance.ShowReferenceBuilds)
             {
                 return null;
             }

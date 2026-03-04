@@ -20,12 +20,14 @@ namespace Silksprite.AvatarRankerVista.View.Window
             var regulationListView = container.Q<RegulationListView>("regulationList");
             regulationListView.Draw(RegulationRepository.Instance.AllRegulations().ToList());
 
+            var showReferenceBuilds = container.Q<Toggle>("showReferenceBuildsToggle");
+            showReferenceBuilds.value = AvatarRankerSettingsRepository.instance.ShowReferenceBuilds;
+            showReferenceBuilds.RegisterValueChangedCallback(evt => OnShowReferenceBuildsChanged(evt.newValue));
+            
             var showFullReport = container.Q<Toggle>("showFullReportToggle");
             showFullReport.value = AvatarRankerSettingsRepository.instance.ShowFullReport;
-            
             showFullReport.RegisterValueChangedCallback(evt => OnShowFullReportChanged(evt.newValue));
-            regulationListView.Draw(RegulationRepository.Instance.AllRegulations().ToList());
-            
+
             var manualMeasureButton = container.Q<Button>("manualMeasureButton");
             manualMeasureButton.clicked += OnManualMeasure;
         }
@@ -41,6 +43,11 @@ namespace Silksprite.AvatarRankerVista.View.Window
         void OnShowFullReportChanged(bool newValue)
         {
             AvatarRankerSettingsRepository.instance.ShowFullReport = newValue;
+        }
+
+        void OnShowReferenceBuildsChanged(bool newValue)
+        {
+            AvatarRankerSettingsRepository.instance.ShowReferenceBuilds = newValue;
         }
     }
 }

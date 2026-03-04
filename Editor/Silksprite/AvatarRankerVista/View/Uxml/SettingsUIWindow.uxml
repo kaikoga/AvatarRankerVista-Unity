@@ -8,6 +8,7 @@
     xsi:noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd"
 >
     <arv:RegulationListView name="regulationList" />
+    <loch:Toggle name="showReferenceBuildsToggle" label="Show Reference Builds" />
     <loch:Toggle name="showFullReportToggle" label="Show Full Report" />
     <loch:Button name="manualMeasureButton" text="Manual Measure Scene Avatars" />
 </engine:UXML>
