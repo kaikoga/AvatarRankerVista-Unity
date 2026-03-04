@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2026-02-18 06:48+0900\n"
+"POT-Creation-Date: 2026-03-05 04:33+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loch\n"
 
-#: Editor/Silksprite/AvatarRankerVista/Ablet/AvatarRankerVistaReporter.cs:63
+#: Editor/Silksprite/AvatarRankerVista/Ablet/AvatarRankerVistaReporter.cs:71
 msgid "AvatarRankerVistaManualReportUIExtension::measureEditModeButton"
 msgstr ""
 
@@ -22,4 +22,8 @@ msgstr "Manual Measure Scene Avatars"
 #: Editor/Silksprite/AvatarRankerVista/View/Uxml/SettingsUIWindow.uxml
 msgid "SettingsUIWindow::showFullReportToggle"
 msgstr "Show Full Report"
+
+#: Editor/Silksprite/AvatarRankerVista/View/Uxml/SettingsUIWindow.uxml
+msgid "SettingsUIWindow::showReferenceBuildsToggle"
+msgstr "Show Reference Builds"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2026-02-18 06:48+0900\n"
+"POT-Creation-Date: 2026-03-05 04:33+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-KeywordsList: Tr;Loc\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: Editor/Silksprite/AvatarRankerVista/Ablet/AvatarRankerVistaReporter.cs:63
+#: Editor/Silksprite/AvatarRankerVista/Ablet/AvatarRankerVistaReporter.cs:71
 msgid "AvatarRankerVistaManualReportUIExtension::measureEditModeButton"
 msgstr "EditMode で計測する (Avatar Ranker Vista)"
 
@@ -26,3 +26,7 @@ msgstr "手動でシーンのアバターを計測する"
 #: Editor/Silksprite/AvatarRankerVista/View/Uxml/SettingsUIWindow.uxml
 msgid "SettingsUIWindow::showFullReportToggle"
 msgstr "完全なレポートを表示する"
+
+#: Editor/Silksprite/AvatarRankerVista/View/Uxml/SettingsUIWindow.uxml
+msgid "SettingsUIWindow::showReferenceBuildsToggle"
+msgstr "ReferenceBuildを表示する"
