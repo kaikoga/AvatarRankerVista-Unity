@@ -1,5 +1,6 @@
 using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
+using Silksprite.Loch.UIElements.Tools;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -17,6 +18,7 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
         public SerializedAvatarReportEntryView()
         {
             var container = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UxmlPath).CloneTree();
+            container.Localize<SerializedAvatarReportEntryView>();
             _criterionText = container.Q<Label>("criterionText");
             _criterionValueText = container.Q<Label>("criterionValueText");
             _levelText = container.Q<Label>("levelText");

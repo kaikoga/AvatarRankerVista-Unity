@@ -4,6 +4,7 @@ using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
 using Silksprite.AvatarRankerVista.Core.Utils;
 using Silksprite.AvatarRankerVista.View.UIElements;
+using Silksprite.Loch.UIElements.Tools;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -16,6 +17,7 @@ namespace Silksprite.AvatarRankerVista.View.Window
         public SettingsUIWindow()
         {
             var container = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UxmlPath).CloneTree();
+            container.Localize<SettingsUIWindow>();
             hierarchy.Add(container);
             var regulationListView = container.Q<RegulationListView>("regulationList");
             regulationListView.Draw(RegulationRepository.Instance.AllRegulations().ToList());

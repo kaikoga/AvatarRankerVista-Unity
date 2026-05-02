@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Silksprite.AvatarRankerVista.Core;
 using Silksprite.AvatarRankerVista.Core.Serialized;
+using Silksprite.Loch.UIElements.Tools;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -35,6 +36,7 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
         public RegulationListItemView()
         {
             var container = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UxmlPath).CloneTree();
+            container.Localize<RegulationListItemView>();
             _toggle = container.Q<Toggle>("toggle");
             _toggle.RegisterValueChangedCallback(OnToggleChanged);
             _label = container.Q<Label>("label");
