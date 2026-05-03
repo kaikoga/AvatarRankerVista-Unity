@@ -7,7 +7,10 @@ using UnityEditor.UIElements;
 
 namespace Silksprite.AvatarRankerVista.View.UIElements
 {
-    sealed class GameObjectPopupField : PopupField<GameObject>
+#if UNITY_2023_2_OR_NEWER
+    [UxmlElement] partial 
+#endif
+    class GameObjectPopupField : PopupField<GameObject>
     {
         public GameObjectPopupField()
         {
@@ -15,8 +18,10 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
             formatSelectedValueCallback = gameObject => gameObject ? gameObject.name : "";
         }
 
+#if !UNITY_2023_2_OR_NEWER
         public new class UxmlFactory : UxmlFactory<GameObjectPopupField, UxmlTraits>
         {
         }
+#endif
     }
 }

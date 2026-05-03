@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 namespace Silksprite.AvatarRankerVista.View.UIElements
 {
+#if UNITY_2023_2_OR_NEWER
+    [UxmlElement] partial 
+#endif
     class RegulationListView : ListView
     {
         public RegulationListView()
@@ -20,11 +23,16 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
             itemsSource = regulations;
         }
         
+#if !UNITY_2023_2_OR_NEWER
         public new class UxmlFactory : UxmlFactory<RegulationListView, UxmlTraits>
         {
         }
+#endif
     }
 
+#if UNITY_2023_2_OR_NEWER
+    [UxmlElement] partial 
+#endif
     class RegulationListItemView : VisualElement
     {
         const string UxmlPath = "Packages/net.kaikoga.arv/Editor/Silksprite/AvatarRankerVista/View/Uxml/RegulationListEntryView.uxml";
@@ -55,8 +63,10 @@ namespace Silksprite.AvatarRankerVista.View.UIElements
             AvatarRankerSettingsRepository.instance.SetRegulationEnabled(_regulation, evt.newValue);
         }
 
+#if !UNITY_2023_2_OR_NEWER
         public new class UxmlFactory : UxmlFactory<RegulationListView, UxmlTraits>
         {
         }
+#endif
     }
 }
